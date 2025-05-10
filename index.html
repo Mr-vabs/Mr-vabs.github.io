@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vaibhav Kasaudhan - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Framer Motion CDN -->
+    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  </head>
+  <body class="bg-yellow-50 text-gray-800 font-sans">
+
+    <div id="root" class="max-w-5xl mx-auto p-6"></div>
+
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script type="text/javascript">
+      const { useEffect } = React;
+
+      const App = () => {
+        const skills = [
+          "React Js", "Python", "Cloud Infra", "Linux Admin", "License Compliance",
+          "Git", "Excel", "C", "O365", "Remote Support", "Data Analysis",
+          "CSS", "Pivot Tables", "ITIL"
+        ];
+
+        const projects = [
+          { title: "Random Anime App", repo: "https://github.com/Mr-vabs/get-random-anime", live: "https://mr-vabs.github.io/get-random-anime/" },
+          { title: "Fitness Landing Page", repo: "https://github.com/Mr-vabs/fitness-website", live: "https://mr-vabs.github.io/fitness-website/" },
+          { title: "Tshippo", repo: "https://github.com/Mr-vabs/tshippo", live: "https://thippo.netlify.app/" },
+          { title: "LoveFile", repo: "https://github.com/Mr-vabs/LoveFile", live: "https://lobshare.netlify.app/" }
+        ];
+
+        return React.createElement("main", {},
+          React.createElement("header", { className: "text-center mb-10" },
+            React.createElement("h1", { className: "text-4xl font-bold" }, "Vaibhav Kasaudhan"),
+            React.createElement("p", { className: "text-lg text-gray-600 mt-2" }, "Software License Manager | React Dev | Tech Support Specialist"),
+            React.createElement("div", { className: "mt-4 space-x-4 text-blue-500" },
+              React.createElement("a", { href: "https://github.com/Mr-vabs", target: "_blank" }, "GitHub"),
+              React.createElement("a", { href: "https://linkedin.com/in/vebhv", target: "_blank" }, "LinkedIn")
+            )
+          ),
+
+          React.createElement("section", { className: "mb-8" },
+            React.createElement("h2", { className: "text-2xl font-semibold mb-2" }, "About Me"),
+            React.createElement("p", {}, "2+ years of experience in technical support and license management. Skilled in software deployment, troubleshooting, and full-stack development.")
+          ),
+
+          React.createElement("section", { className: "mb-8" },
+            React.createElement("h2", { className: "text-2xl font-semibold mb-2" }, "Skills"),
+            React.createElement("div", { className: "flex flex-wrap gap-2" },
+              skills.map((skill) =>
+                React.createElement("span", { key: skill, className: "bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm" }, skill)
+              )
+            )
+          ),
+
+          React.createElement("section", { className: "mb-8" },
+            React.createElement("h2", { className: "text-2xl font-semibold mb-2" }, "Projects"),
+            React.createElement("div", { className: "grid md:grid-cols-2 gap-4" },
+              projects.map(({ title, repo, live }) =>
+                React.createElement("div", { key: title, className: "bg-white p-4 rounded-xl shadow hover:shadow-lg transition-all" },
+                  React.createElement("h3", { className: "text-lg font-semibold" }, title),
+                  React.createElement("div", { className: "text-blue-500 mt-2 text-sm" },
+                    React.createElement("a", { href: repo, target: "_blank", className: "mr-4" }, "Repo"),
+                    React.createElement("a", { href: live, target: "_blank" }, "Live")
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement("section", { className: "mb-8" },
+            React.createElement("h2", { className: "text-2xl font-semibold mb-2" }, "Experience"),
+            React.createElement("ul", { className: "space-y-3" },
+              React.createElement("li", null,
+                React.createElement("strong", null, "Microland Ltd (2024–Present): "),
+                "Managing software compliance & inventory at Maruti Suzuki."
+              ),
+              React.createElement("li", null,
+                React.createElement("strong", null, "Wipro Ltd (2022–2024): "),
+                "System Admin for ICICI Bank. Managed 200+ devices and AD/DC configuration."
+              )
+            )
+          ),
+
+          React.createElement("section", { className: "mb-8" },
+            React.createElement("h2", { className: "text-2xl font-semibold mb-2" }, "Education"),
+            React.createElement("ul", { className: "space-y-2" },
+              React.createElement("li", null,
+                React.createElement("strong", null, "BCA - IGNOU (2025)")),
+              React.createElement("li", null,
+                React.createElement("strong", null, "Diploma - CSE (2019–2022)"))
+            )
+          ),
+
+          React.createElement("section", null,
+            React.createElement("h2", { className: "text-2xl font-semibold mb-2" }, "Achievements"),
+            React.createElement("p", null,
+              "Contributed 6 PRs in Hacktoberfest 2021-22 and earned official swag."
+            ),
+            React.createElement("p", null,
+              "Languages: English, Hindi"
+            )
+          ),
+
+          React.createElement("footer", { className: "text-center text-sm text-gray-400 mt-12" },
+            "Built with React CDN + Tailwind | Inspired by food delivery UIs"
+          )
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(App));
+    </script>
+  </body>
+</html>
