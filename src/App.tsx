@@ -42,6 +42,7 @@ export default function App() {
       />
 
       <main className="max-w-5xl mx-auto px-4 py-12 space-y-12">
+      
         <Hero />
         <Skills />
         <Experience />
