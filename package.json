@@ -10,8 +10,10 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
+    "aos": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
