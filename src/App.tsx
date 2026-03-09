@@ -27,11 +27,13 @@ export default function App() {
     // Save theme to local storage when it changes
     localStorage.setItem("theme", darkMode ? "dark" : "light");
 
-    // Add/remove dark class from HTML document body for global styles if needed
+    // Explicitly add or remove the 'dark' class on the HTML element
+    // This is required when Tailwind is configured with darkMode: 'class'
+    const root = document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
     }
   }, [darkMode]);
 
@@ -39,9 +41,11 @@ export default function App() {
     // Listen for system theme changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (e: MediaQueryListEvent) => {
-      // Only change if user hasn't explicitly set a preference in this session
-      // (For simplicity, we just update it when system changes unless we want to add complex logic)
-      setDarkMode(e.matches);
+      // If the user hasn't explicitly set a preference in local storage, follow system preference
+      const savedTheme = localStorage.getItem("theme");
+      if (!savedTheme) {
+        setDarkMode(e.matches);
+      }
     };
 
     mediaQuery.addEventListener("change", handleChange);
@@ -61,17 +65,17 @@ export default function App() {
   return (
     <div
       className={
-        darkMode ? "dark bg-slate-900 text-white min-h-screen" : "bg-yellow-50 text-gray-900 min-h-screen"
+        darkMode ? "bg-slate-900 text-white min-h-screen" : "bg-yellow-50 text-gray-900 min-h-screen"
       }
     >
 
       <button
         onClick={toggleDarkMode}
-        className="fixed top-4 right-4 z-50 p-2 bg-white dark:bg-slate-800 text-gray-800 dark:text-yellow-300 rounded-full shadow-lg ring-2 ring-gray-300 dark:ring-yellow-400 hover:scale-110 transition"
+        className="fixed top-4 right-4 z-50 p-3 bg-white dark:bg-slate-800 text-gray-800 dark:text-yellow-300 rounded-full shadow-lg ring-2 ring-gray-300 dark:ring-yellow-400 hover:scale-110 transition active:scale-95 touch-manipulation"
         aria-label="Toggle theme"
         data-aos="fade-left" data-aos-delay="10"
       >
-        {darkMode ? <FaSun /> : <FaMoon />}
+        {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
       </button>
 
       {particlesInit && (
