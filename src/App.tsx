@@ -76,16 +76,22 @@ export default function App() {
 
       {particlesInit && (
         <Particles
+          key={darkMode ? "dark" : "light"}
           id="tsparticles"
           options={{
             fullScreen: { enable: false },
             background: { color: "transparent" },
             particles: {
+              color: { value: darkMode ? "#ffffff" : "#000000" },
               number: { value: 80 },
               size: { value: 3 },
               move: { enable: true, speed: 1 },
-              opacity: { value: 0.3 },
-              links: { enable: true, color: "#ccc" }
+              opacity: { value: darkMode ? 0.3 : 0.2 },
+              links: {
+                enable: true,
+                color: darkMode ? "#ffffff" : "#000000",
+                opacity: darkMode ? 0.3 : 0.2
+              }
             }
           }}
           className="absolute inset-0 z-0 pointer-events-none"
